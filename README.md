@@ -56,7 +56,7 @@ async def main():
     flags = 3
     payload = nt.Cell()
     tx = await multisig_wallet.send_transaction(dest, value, bounce, flags, payload, signer=keypair)
-    print(f"Send transaction ID: {tx.hash.hex()}")`
+    print(f"Send transaction ID: {tx.hash.hex()}")
 
 asyncio.run(main())
 ```
