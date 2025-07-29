@@ -30,15 +30,14 @@ import nekoton as nt
 from setcodemultisig import SetcodeMultisig
 
 ENDPOINT = "https://rpc-testnet.tychoprotocol.com/proto"
-SEED_PHRASE = "replace with your test 12/24 word seed"
 
 async def main():
     # 1) Transport
     transport = nt.ProtoTransport(ENDPOINT)
 
-    # 2) Derive keypair (test seed!)
-    seed = nt.Bip39Seed(SEED_PHRASE)
-    keypair = nt.KeyPair.from_seed(seed)
+    # 2) Create keypair
+    seed = nt.Bip39Seed.generate()
+    keypair = seed.derive()
     pubkey = keypair.public_key
 
     # 3) Compute deterministic SetcodeMultisig address (workchain 0 by default)
@@ -49,15 +48,6 @@ async def main():
     state = await transport.get_account_state(msig_addr)
     print("Account state:", state)
 
-    # 5) Send transaction
-    dest = nt.Address("0:4594925085dbca1e5660f7d1de89616967b35afd215b35457a93b839e022992d")
-    value = nt.Tokens("0.01")
-    bounce = True
-    flags = 3
-    payload = nt.Cell()
-    tx = await multisig_wallet.send_transaction(dest, value, bounce, flags, payload, signer=keypair)
-    print(f"Send transaction ID: {tx.hash.hex()}")
-
 asyncio.run(main())
 ```
-For more examples see test_send_trx.py and test_setcode.py.
+For more examples with deployment see `test_send_trx.py` and `test_setcode.py`
