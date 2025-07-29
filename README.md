@@ -1,10 +1,17 @@
-# Setcodemultisig  (WIP)
+# SetcodeMultisig (WIP)
 
-Lightweight Python SDK for the SetcodeMultisig smart contract on TVM blockchains — including TON, Everscale, Venom, Hamster, Humo, and other Tycho‑based networks (https://tychoprotocol.com).
+A lightweight Python SDK for interacting with the **SetcodeMultisig** smart contract across TVM blockchains — including **TON, Everscale, Venom, Hamster, Humo**, and other **Tycho‑based** networks.
 
-Contract code hash: d66d198766abdbe1253f3415826c946c371f5112552408625aeb0b31e0ef2df3
+- **Contract code hash:** `d66d198766abdbe1253f3415826c946c371f5112552408625aeb0b31e0ef2df3`  
+- **Powered by:** Python bindings to the [Nekoton](https://github.com/broxus/nekoton-python) SDK by Broxus
 
-Uses Python bindings to the Nekoton SDK by Broxus (https://github.com/broxus/nekoton-python)
+**What it does**
+
+- Deploy single‑ or multi‑owner multisig wallets  
+- Submit transfers and advanced payloads  
+- Confirm/cancel pending transactions (M‑of‑N)  
+- Read wallet parameters (owners, required confirmations, lifetime)  
+- Update owners and parameters; perform safe code upgrades (setcode)
 
 ## Installation
 
