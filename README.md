@@ -5,13 +5,14 @@ A lightweight Python SDK for interacting with the **SetcodeMultisig** smart cont
 - **Contract code hash:** `d66d198766abdbe1253f3415826c946c371f5112552408625aeb0b31e0ef2df3`  
 - **Powered by:** Python bindings to the [Nekoton](https://github.com/broxus/nekoton-python) SDK by Broxus
 
-**What it does**
+## What it does
 
-- Deploy single‑ or multi‑owner multisig wallets  
-- Submit transfers and advanced payloads  
-- Confirm/cancel pending transactions (M‑of‑N)  
+- Deploy single‑owner or multi‑owner multisig wallets  
+- Submit transfers (for multi-owner) or simply send transactions (for single-owner)  
+- Confirm pending transactions  
 - Read wallet parameters (owners, required confirmations, lifetime)  
 - Update owners and parameters; perform safe code upgrades (setcode)
+- Have a bunch of helpers / getters
 
 ## Installation
 
