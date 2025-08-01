@@ -31,12 +31,9 @@ async def main():
     print(f"Multi-owner MSIG ADDR: {msig_addr}")
     print("")
     
-    print("=== Step 4: Topping up multi-owner msig address with 0.3 TYCHO ===")
-    print(f"Sending 0.3 TYCHO to {msig_addr} ...")
-    start_time = time.time()
+    print("=== Step 4: Topping up single-owner msig address with 0.3 TYCHO ===")
+    print(f"Sending 0.3 TYCHO to {msig_addr} ...")    
     await giver_wallet.give(msig_addr, nt.Tokens("0.3"))
-    elapsed_time = time.time() - start_time
-    print(f"[DEBUG] It took {elapsed_time:.2f} secs to send transaction.")
     account_state = await transport.get_account_state(msig_addr)    
     print(f"Pre-deployment state: {account_state}")    
     print(f"Account status: {account_state.status}")    
@@ -70,9 +67,7 @@ async def main():
     print("=== Step 9: Send transaction on single-owner ===")    
     dest = nt.Address("0:4594925085dbca1e5660f7d1de89616967b35afd215b35457a93b839e022992d")
     value = nt.Tokens("0.01")     
-    st = time.time()
     tx = await multisig_wallet.send_transaction(dest, value, True, 3, nt.Cell(), signer=deployer_keypair)
-    print(f"[DEBUG] It took {(time.time() - st):.2f} secs")
     print(f"Send transaction: {tx.hash.hex()}")    
     print("")
 
